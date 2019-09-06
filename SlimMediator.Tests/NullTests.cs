@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SlimMediator.TestItems;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -76,32 +77,5 @@ namespace SlimMediator
         }
 
         #endregion Public Methods
-
-        #region Private Classes
-
-        private class TestNotification
-            : INotification
-        {
-        }
-
-        private class TestRequest
-            : IRequest<int>
-        {
-        }
-
-        private class TestRequestHandler
-            : IRequestHandler<TestRequest, int>
-        {
-            #region Public Methods
-
-            public Task<int> HandleAsync(TestRequest request, CancellationToken cancellationToken)
-            {
-                return Task.FromResult(1);
-            }
-
-            #endregion Public Methods
-        }
-
-        #endregion Private Classes
     }
 }

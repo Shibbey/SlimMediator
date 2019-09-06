@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using SlimMediator.TestItems;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -49,14 +50,5 @@ namespace SlimMediator
         }
 
         #endregion Private Methods
-
-        #region Public Classes
-
-        public class TestNotification
-            : INotification
-        {
-        }
-
-        #endregion Public Classes
     }
 }

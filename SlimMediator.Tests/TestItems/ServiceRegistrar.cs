@@ -2,7 +2,7 @@
 using SlimMediator.Registration;
 using System;
 
-namespace SlimMediator
+namespace SlimMediator.TestItems
 {
     internal class ServiceRegistrar
         : IServiceRegistrar

@@ -1,79 +1,96 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ninject;
+using SlimMediator.TestItems;
 using System;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Ninject;
 
 namespace SlimMediator
 {
     [TestClass]
     public class NinjectRegistrationTests
     {
+        #region Public Methods
+
         [TestMethod]
-        public void RegistersAllNotificationHandlers()
+        public void Ninject_RegistersAllNotificationHandlers()
         {
+            // Arrange
             var kernel = new StandardKernel();
 
             // Act
             kernel.RegisterAllNotificationHandlers(Registration.RegistrationScope.Scoped);
+            var handlers = kernel.GetAll<INotificationHandler<TestNotification>>();
+            var handlers2 = kernel.GetAll<INotificationHandler<TestNotification2>>();
+            var handlers3 = kernel.GetAll<INotificationHandler<TestNotification3>>();
 
             // Assert
-            //kernel.Components..Count.Should().BeGreaterOrEqualTo(5);
-            //kernel.First().Lifetime.Should().Be(ServiceLifetime.Scoped);
+            handlers.Count().Should().Be(3);
+            handlers2.Count().Should().Be(1);
+            handlers3.Count().Should().Be(1);
         }
 
         [TestMethod]
-        public void RegistersAllRequestHandlers()
+        public void Ninject_RegistersAllRequestHandlers()
         {
+            // Arrange
             var kernel = new StandardKernel();
 
             // Act
             kernel.RegisterAllRequestHandlers(Registration.RegistrationScope.Scoped);
+            var handler = kernel.Get<IRequestHandler<TestRequest, int>>();
+            var handler2 = kernel.Get<IRequestHandler<TestRequest2, int>>();
 
             // Assert
-            //sc.Count.Should().BeGreaterOrEqualTo(2);
-            //sc.First().Lifetime.Should().Be(ServiceLifetime.Scoped);
+            handler.Should().NotBeNull();
+            handler2.Should().NotBeNull();
         }
 
         [TestMethod]
-        public void RegistersDefaultmediator_Scoped()
+        public void Ninject_RegistersDefaultmediator_Scoped()
         {
+            // Arrange
             var kernel = new StandardKernel();
+            kernel.Bind<IServiceProvider>().To<NinjectServiceProvider>().InSingletonScope();
 
             // Act
             kernel.RegisterDefaultMediator(Registration.RegistrationScope.Scoped);
+            var mediator = kernel.Get<IMediator>();
 
             // Assert
-            //sc.Count.Should().Be(1);
-            //sc.First().Lifetime.Should().Be(ServiceLifetime.Scoped);
+            mediator.Should().NotBeNull();
         }
 
         [TestMethod]
-        public void RegistersDefaultmediator_Singleton()
+        public void Ninject_RegistersDefaultmediator_Singleton()
         {
+            // Arrange
             var kernel = new StandardKernel();
+            kernel.Bind<IServiceProvider>().To<NinjectServiceProvider>().InSingletonScope();
 
             // Act
             kernel.RegisterDefaultMediator(Registration.RegistrationScope.Singleton);
+            var mediator = kernel.Get<IMediator>();
 
             // Assert
-            //sc.Count.Should().Be(1);
-            //sc.First().Lifetime.Should().Be(ServiceLifetime.Singleton);
+            mediator.Should().NotBeNull();
         }
 
         [TestMethod]
-        public void RegistersDefaultmediator_Transient()
+        public void Ninject_RegistersDefaultmediator_Transient()
         {
+            // Arrange
             var kernel = new StandardKernel();
+            kernel.Bind<IServiceProvider>().To<NinjectServiceProvider>().InSingletonScope();
 
             // Act
             kernel.RegisterDefaultMediator(Registration.RegistrationScope.Transient);
+            var mediator = kernel.Get<IMediator>();
 
             // Assert
-            //sc.Count.Should().Be(1);
-            //sc.First().Lifetime.Should().Be(ServiceLifetime.Transient);
+            mediator.Should().NotBeNull();
         }
+
+        #endregion Public Methods
     }
 }
