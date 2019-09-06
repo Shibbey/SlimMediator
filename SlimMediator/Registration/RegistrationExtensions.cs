@@ -122,6 +122,11 @@ namespace SlimMediator
                                                                  IEnumerable<Assembly> assembliesToScan,
                                                                  bool addIfAlreadyExists)
         {
+            if (!assembliesToScan.Any())
+            {
+                assembliesToScan = AppDomain.CurrentDomain.GetAssemblies();
+            }
+
             var concretions = new List<Type>();
             var interfaces = new List<Type>();
             foreach (var type in assembliesToScan.SelectMany(a => a.DefinedTypes).Where(t => !t.IsOpenGeneric()))

@@ -18,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SlimMediator.Microsoft.Extensions.DependencyInjection\SlimMediator.Microsoft.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\SlimMediator.Ninject\SlimMediator.Ninject.csproj" />
     <ProjectReference Include="..\SlimMediator\SlimMediator.csproj" />
   </ItemGroup>
 

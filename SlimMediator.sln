@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlimMediator", "SlimMediato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlimMediator.Tests", "SlimMediator.Tests\SlimMediator.Tests.csproj", "{E33B9DBC-69C7-4D0D-8F9E-6A970FC6DD81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimMediator.Microsoft.Extensions.DependencyInjection", "SlimMediator.Microsoft.Extensions.DependencyInjection\SlimMediator.Microsoft.Extensions.DependencyInjection.csproj", "{3FAECC0C-C2E3-49B9-B722-544C3C4939FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimMediator.Ninject", "SlimMediator.Ninject\SlimMediator.Ninject.csproj", "{1A32F534-A657-4D16-A5E1-06EB6479998C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E33B9DBC-69C7-4D0D-8F9E-6A970FC6DD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E33B9DBC-69C7-4D0D-8F9E-6A970FC6DD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E33B9DBC-69C7-4D0D-8F9E-6A970FC6DD81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FAECC0C-C2E3-49B9-B722-544C3C4939FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FAECC0C-C2E3-49B9-B722-544C3C4939FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FAECC0C-C2E3-49B9-B722-544C3C4939FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FAECC0C-C2E3-49B9-B722-544C3C4939FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A32F534-A657-4D16-A5E1-06EB6479998C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A32F534-A657-4D16-A5E1-06EB6479998C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A32F534-A657-4D16-A5E1-06EB6479998C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A32F534-A657-4D16-A5E1-06EB6479998C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

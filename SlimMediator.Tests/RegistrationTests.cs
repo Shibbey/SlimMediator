@@ -17,10 +17,9 @@ namespace SlimMediator
         public void RegistersAllNotificationHandlers()
         {
             var sc = new ServiceCollection();
-            var sr = new ServiceRegistrar(sc);
 
             // Act
-            sr.RegisterAllNotificationHandlers(Registration.RegistrationScope.Scoped, typeof(RegistrationTests).Assembly);
+            sc.RegisterAllNotificationHandlers(Registration.RegistrationScope.Scoped);
 
             // Assert
             sc.Count.Should().BeGreaterOrEqualTo(5);
@@ -31,10 +30,9 @@ namespace SlimMediator
         public void RegistersAllRequestHandlers()
         {
             var sc = new ServiceCollection();
-            var sr = new ServiceRegistrar(sc);
 
             // Act
-            sr.RegisterAllRequestHandlers(Registration.RegistrationScope.Scoped, typeof(RegistrationTests).Assembly);
+            sc.RegisterAllRequestHandlers(Registration.RegistrationScope.Scoped);
 
             // Assert
             sc.Count.Should().BeGreaterOrEqualTo(2);
@@ -45,10 +43,9 @@ namespace SlimMediator
         public void RegistersDefaultmediator_Scoped()
         {
             var sc = new ServiceCollection();
-            var sr = new ServiceRegistrar(sc);
 
             // Act
-            sr.RegisterDefaultMediator(Registration.RegistrationScope.Scoped);
+            sc.RegisterDefaultMediator(Registration.RegistrationScope.Scoped);
 
             // Assert
             sc.Count.Should().Be(1);
@@ -59,10 +56,9 @@ namespace SlimMediator
         public void RegistersDefaultmediator_Singleton()
         {
             var sc = new ServiceCollection();
-            var sr = new ServiceRegistrar(sc);
 
             // Act
-            sr.RegisterDefaultMediator(Registration.RegistrationScope.Singleton);
+            sc.RegisterDefaultMediator(Registration.RegistrationScope.Singleton);
 
             // Assert
             sc.Count.Should().Be(1);
@@ -73,10 +69,9 @@ namespace SlimMediator
         public void RegistersDefaultmediator_Transient()
         {
             var sc = new ServiceCollection();
-            var sr = new ServiceRegistrar(sc);
 
             // Act
-            sr.RegisterDefaultMediator(Registration.RegistrationScope.Transient);
+            sc.RegisterDefaultMediator(Registration.RegistrationScope.Transient);
 
             // Assert
             sc.Count.Should().Be(1);
